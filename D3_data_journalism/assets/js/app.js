@@ -9,8 +9,8 @@ var height = svgHeight - margin.top - margin.bottom;
 
 var svg = d3.select("#scatter")
     .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+      .attr("width", svgWidth)
+      .attr("height", svgHeight);
 
 var chartGroup = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
@@ -71,4 +71,28 @@ d3.csv("./assets/data/data.csv").then((healthData) => {
       .text("Poverty");
   }).catch(function(error) {
     console.log(error);
+
+
+    // Tooltip tutorial from D3 scatterplot gallery
+    var toolTip = d3.select("#scatter")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+
+    // // Call tooltip in chart
+    // chartGroup.call(toolTip);
+
+    // // Create event listeners to display and hide the tooltip
+    // circlesGroup.on("mouseover", function(healthData) {
+    //     toolTip.show(data, this);
+    //   })
+    //     // onmouseout event
+    //     .on("mouseout", function(healthData, index) {
+    //       toolTip.hide(data);
+    //     });
 });
