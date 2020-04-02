@@ -25,6 +25,24 @@ var svg = d3
     .attr("class", "chart");
 
 
+var circleRadius;
+
+// We create this function to dynamically set the radius of the function
+function crGet() {
+    if (width <= 530) {
+      circRadius = 5;
+    }
+    else {
+      circRadius = 10;
+    }
+  }
+  crGet();
+  
+
+  
+
+
+
 
 
 
